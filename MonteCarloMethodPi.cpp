@@ -12,7 +12,7 @@ using namespace std;
 int main(int argc, char** argv) {
 
     if (argc != 2) {
-        cerr << "Usage: " << argv[0] << " <matrix_size>" << endl;
+        cerr << "Usage: " << argv[0] << " <number of points>" << endl;
         return EXIT_FAILURE;
     }
 
@@ -27,14 +27,14 @@ int main(int argc, char** argv) {
     
     long long local_samples = num_samples / world_size;
 
-    // Инициализация генератора случайных чисел
+    
     srand(time(NULL) + world_rank);
 
     auto start_time = chrono::high_resolution_clock::now();
 
     long long local_count_inside = 0;
 
-    // Генерация случайных точек и подсчет точек внутри круга
+    
     for (long long i = 0; i < local_samples; ++i) {
         double x = static_cast<double>(rand()) / RAND_MAX;
         double y = static_cast<double>(rand()) / RAND_MAX;
@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
 
         cout << "Time taken: " << minutes.count() << " minutes::" << seconds.count() << " seconds::" << milliseconds.count() << " milliseconds" << endl;
 
-        // Вывод библиотечного числа π
+        
         
     }
 
